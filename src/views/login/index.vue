@@ -39,6 +39,8 @@
 <script>
 import { reqLogin } from '@/api/login'
 import { setStore } from '@/utils/mUtils'
+import { setToken } from '@/utils/auth'
+
 export default {
   name: 'Login',
   data() {
@@ -104,6 +106,9 @@ export default {
         this.$store.dispatch('recordUserInfo', result.data)
         // 将userInfo存入localSession
         setStore('adminInfo', result.data)
+        // 设置Token
+        setToken(result.data)
+
         this.$message({
           message: result.msg,
           type: 'success'

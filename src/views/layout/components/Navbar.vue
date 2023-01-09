@@ -94,6 +94,7 @@ export default {
       if (result.statu === 0) {
         // 移除localStorage中adminInfo
         removeStore('adminInfo')
+        removeStore('access_token')
         // 重置vuex中userInfo
         this.$store.dispatch('resetUserInfo')
         this.$message({
